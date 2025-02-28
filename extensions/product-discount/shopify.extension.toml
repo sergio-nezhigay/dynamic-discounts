@@ -17,5 +17,5 @@ description = "t:description"
   path = "dist/function.wasm"
 
   [extensions.ui.paths]
-  create = "/"
+  create = "/app/volume-discount/:functionId/new"
   details = "/"

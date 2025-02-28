@@ -1,56 +1,55 @@
-// @ts-check
 import { DiscountApplicationStrategy } from "../generated/api";
 
-// Use JSDoc annotations for type safety
-/**
- * @typedef {import("../generated/api").RunInput} RunInput
- * @typedef {import("../generated/api").FunctionRunResult} FunctionRunResult
- * @typedef {import("../generated/api").Target} Target
- * @typedef {import("../generated/api").ProductVariant} ProductVariant
- */
-
-/**
- * @type {FunctionRunResult}
- */
 const EMPTY_DISCOUNT = {
   discountApplicationStrategy: DiscountApplicationStrategy.First,
   discounts: [],
 };
-/**
- * @param {RunInput} input
- * @returns {FunctionRunResult}
- */
+
 export function run(input) {
-  const targets = input.cart.lines
-    // Only include cart lines with a quantity of two or more
-    .filter((line) => line.quantity >= 2)
-    .map((line) => {
-      return /** @type {Target} */ ({
-        // Use the cart line ID to create a discount target
-        cartLine: {
-          id: line.id,
-        },
+  console.log("input:", JSON.stringify(input, null, 2));
+
+  const discountTargets = {};
+
+  input.cart.lines.forEach((line) => {
+    let discountAmount = null;
+
+    if (line.attribute && line.attribute.key === "discount-amount") {
+      const attrDiscount = parseFloat(line.attribute.value);
+      if (!isNaN(attrDiscount)) {
+        discountAmount = attrDiscount;
+      }
+    } else if (line.merchandise.product.title.includes("red")) {
+      discountAmount = 1;
+    }
+
+    if (discountAmount !== null) {
+      if (!discountTargets[discountAmount]) {
+        discountTargets[discountAmount] = [];
+      }
+      discountTargets[discountAmount].push({
+        productVariant: { id: line.merchandise.id },
       });
-    });
-  if (!targets.length) {
-    // You can use STDERR for debug logs in your function
-    console.error("No cart lines qualify for volume discount.");
+    }
+  });
+
+  const discountAmounts = Object.keys(discountTargets);
+  if (discountAmounts.length === 0) {
     return EMPTY_DISCOUNT;
   }
 
-  return {
-    discounts: [
-      {
-        // Apply the discount to the collected targets
-        targets,
-        // Define a percentage-based discount
-        value: {
-          percentage: {
-            value: "10.0",
-          },
-        },
+  const discounts = discountAmounts.map((amount) => ({
+    targets: discountTargets[amount],
+    value: {
+      fixedAmount: {
+        amount: parseFloat(amount),
+        appliesToEachItem: true,
       },
-    ],
+    },
+    message: `Sergio discount1523 ${amount} applied`,
+  }));
+
+  return {
     discountApplicationStrategy: DiscountApplicationStrategy.First,
+    discounts: discounts,
   };
 }

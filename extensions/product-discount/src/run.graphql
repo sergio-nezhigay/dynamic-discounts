@@ -1,8 +1,33 @@
 query RunInput {
   cart {
+    attribute {
+      key
+      value
+    }
     lines {
       id
       quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            title
+          }
+        }
+      }
+      attribute {
+        key
+        value
+      }
+    }
+  }
+
+  discountNode {
+    metafield(
+      namespace: "$app:volume-discount"
+      key: "function-configuration"
+    ) {
+      value
     }
   }
 }

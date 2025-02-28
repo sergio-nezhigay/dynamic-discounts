@@ -1,9 +1,9 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "8e19e2cd739b4017001e7c18e0f9c3a7"
-name = "test14"
-handle = "test14-3"
-application_url = "https://soundtrack-responsible-testament-wisconsin.trycloudflare.com"
+name = "dynamic-discounts"
+handle = "dynamic-discounts"
+application_url = "https://sur-anger-pounds-super.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ scopes = "write_products,write_discounts"
 
 [auth]
 redirect_urls = [
-  "https://soundtrack-responsible-testament-wisconsin.trycloudflare.com/auth/callback",
-  "https://soundtrack-responsible-testament-wisconsin.trycloudflare.com/auth/shopify/callback",
-  "https://soundtrack-responsible-testament-wisconsin.trycloudflare.com/api/auth/callback"
+  "https://sur-anger-pounds-super.trycloudflare.com/auth/callback",
+  "https://sur-anger-pounds-super.trycloudflare.com/auth/shopify/callback",
+  "https://sur-anger-pounds-super.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

@@ -8,9 +8,9 @@
 7 silly config load:file:C:\Users\user\AppData\Roaming\npm\etc\npmrc
 8 verbose title npm exec graphql-code-generator --config package.json
 9 verbose argv "exec" "--" "graphql-code-generator" "--config" "package.json"
-10 verbose logfile logs-max:10 dir:C:\projects\test14\npm-cache\_logs\2025-02-27T16_00_52_483Z-
-11 verbose logfile C:\projects\test14\npm-cache\_logs\2025-02-27T16_00_52_483Z-debug-0.log
-12 silly logfile start cleaning logs, removing 2 files
+10 verbose logfile logs-max:10 dir:C:\projects\test14\extensions\product-discount\npm-cache\_logs\2025-02-28T12_28_53_591Z-
+11 verbose logfile C:\projects\test14\extensions\product-discount\npm-cache\_logs\2025-02-28T12_28_53_591Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
 13 silly logfile done cleaning log files
 14 verbose cwd C:\projects\test14\extensions\product-discount
 15 verbose os Windows_NT 10.0.19045
