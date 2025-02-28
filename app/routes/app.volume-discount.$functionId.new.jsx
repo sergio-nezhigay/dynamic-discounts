@@ -18,7 +18,6 @@ import {
 import {
   Banner,
   Card,
-  Text,
   Layout,
   Page,
   PageActions,
@@ -33,7 +32,7 @@ export const action = async ({ params, request }) => {
   const { functionId } = params;
   const { admin } = await shopify.authenticate.admin(request);
   const formData = await request.formData();
-  const { title, combinesWith, startsAt, endsAt, configuration } = JSON.parse(
+  const { title, combinesWith, startsAt, endsAt } = JSON.parse(
     formData.get("discount"),
   );
 
@@ -44,18 +43,6 @@ export const action = async ({ params, request }) => {
     startsAt: new Date(startsAt),
     endsAt: endsAt && new Date(endsAt),
   };
-
-  const metafields = [
-    {
-      namespace: "$app:volume-discount",
-      key: "function-configuration",
-      type: "json",
-      value: JSON.stringify({
-        quantity: configuration.quantity,
-        percentage: configuration.percentage,
-      }),
-    },
-  ];
 
   const response = await admin.graphql(
     `#graphql
@@ -75,7 +62,6 @@ export const action = async ({ params, request }) => {
       variables: {
         discount: {
           ...baseDiscount,
-          metafields,
         },
       },
     },
@@ -104,7 +90,7 @@ export default function VolumeNew() {
   }, [actionData]);
 
   const {
-    fields: { discountTitle, combinesWith, startDate, endDate, configuration },
+    fields: { discountTitle, combinesWith, startDate, endDate },
     submit,
   } = useForm({
     fields: {
@@ -116,10 +102,6 @@ export default function VolumeNew() {
       }),
       startDate: useField(todaysDate),
       endDate: useField(null),
-      configuration: {
-        quantity: useField("1"),
-        percentage: useField("0"),
-      },
     },
     onSubmit: async (form) => {
       const discount = {
@@ -127,10 +109,6 @@ export default function VolumeNew() {
         combinesWith: form.combinesWith,
         startsAt: form.startDate,
         endsAt: form.endDate,
-        configuration: {
-          quantity: parseInt(form.configuration.quantity),
-          percentage: parseFloat(form.configuration.percentage),
-        },
       };
 
       submitForm({ discount: JSON.stringify(discount) }, { method: "post" });
@@ -175,24 +153,10 @@ export default function VolumeNew() {
               <Box paddingBlockEnd="300">
                 <Card>
                   <BlockStack>
-                    <Text variant="headingMd" as="h2">
-                      Volume
-                    </Text>
                     <TextField
                       label="Title"
                       autoComplete="on"
                       {...discountTitle}
-                    />
-                    <TextField
-                      label="Minimum quantity"
-                      autoComplete="on"
-                      {...configuration.quantity}
-                    />
-                    <TextField
-                      label="Discount percentage"
-                      autoComplete="on"
-                      {...configuration.percentage}
-                      suffix="%"
                     />
                   </BlockStack>
                 </Card>

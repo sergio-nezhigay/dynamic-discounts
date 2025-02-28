@@ -4,25 +4,24 @@ import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }) => {
   await authenticate.admin(request);
-
   return null;
 };
 
 export default function Index() {
   return (
     <Page>
-      <TitleBar title="Volume Discount App" />
+      <TitleBar title="Dynamic Discounts App" />
       <Layout>
         <Layout.Section>
           <Card>
             <BlockStack gap="500">
               <BlockStack gap="200">
                 <Text as="h2" variant="headingMd">
-                  Welcome to the Volume Discount App!
+                  Welcome to the Dynamic Discounts App!
                 </Text>
                 <Text variant="bodyMd" as="p">
-                  This app allows you to create automatic volume discounts for
-                  your Shopify store
+                  This app helps Shopify developers implement one of the steps
+                  for Google Merchant automated discounts.
                 </Text>
               </BlockStack>
               <BlockStack gap="200">
@@ -30,29 +29,47 @@ export default function Index() {
                   Key Features
                 </Text>
                 <Text as="p" variant="bodyMd">
-                  <Text as="b">Automatic Discounts:</Text> Create discounts that
-                  apply automatically when customers meet certain quantity
-                  thresholds.
+                  <Text as="b">Cart attribute</Text> - based discounts: apply
+                  discounts dynamically based on cart attributes.
                 </Text>
                 <Text as="p" variant="bodyMd">
-                  <Text as="b">Volume-Based:</Text> Set different discount
-                  percentages based on the quantity of items in the cart.
+                  <Text as="b">Google Merchant Integration:</Text> Supports
+                  Google automated discounts by processing predefined discount
+                  amounts.
                 </Text>
                 <Text as="p" variant="bodyMd">
-                  <Text as="b">Easy Configuration:</Text> Define the quantity
-                  required and the discount percentage in a simple form.
-                </Text>
-                <Text as="p" variant="bodyMd">
-                  <Text as="b">Combinable:</Text> Set if the discount can be
-                  combined with other discounts.
+                  <Text as="b">Easy Setup:</Text> Simply configure discounts in
+                  Shopify Admin using this app.
                 </Text>
               </BlockStack>
               <BlockStack gap="200">
                 <Text as="h3" variant="headingMd">
-                  How to Use
+                  Steps to Use
                 </Text>
                 <Text as="p" variant="bodyMd">
-                  Create a new discount in the navigation menu.
+                  1. Install the app in your Shopify store.
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  2. Create a new discount in Shopify Admin by selecting the
+                  "Dynamic Discount" variant.
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  3. Define additional settings (optional, e.g., start/end
+                  dates, stacking rules).
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  4. Save and activate the discount rule.
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  <Text as="b">Note:</Text> Developers must handle feed
+                  adjustments and token processing separately to store the
+                  discount amount in the "discount-amount" cart attribute.
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  <Text as="b">Important:</Text> The discount value applied is
+                  taken from the cart attribute with the key "discount-amount".
+                  Ensure that this attribute is correctly set before the
+                  discount is processed.
                 </Text>
               </BlockStack>
             </BlockStack>

@@ -2,8 +2,8 @@
 
 client_id = "8e19e2cd739b4017001e7c18e0f9c3a7"
 name = "dynamic-discounts"
-handle = "dynamic-discounts"
-application_url = "https://sur-anger-pounds-super.trycloudflare.com"
+handle = "dynamic-discounts1"
+application_url = "https://paperback-quit-urgent-thee.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ scopes = "write_products,write_discounts"
 
 [auth]
 redirect_urls = [
-  "https://sur-anger-pounds-super.trycloudflare.com/auth/callback",
-  "https://sur-anger-pounds-super.trycloudflare.com/auth/shopify/callback",
-  "https://sur-anger-pounds-super.trycloudflare.com/api/auth/callback"
+  "https://paperback-quit-urgent-thee.trycloudflare.com/auth/callback",
+  "https://paperback-quit-urgent-thee.trycloudflare.com/auth/shopify/callback",
+  "https://paperback-quit-urgent-thee.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

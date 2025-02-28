@@ -2,17 +2,17 @@
 1 info using npm@11.1.0
 2 info using node@v22.12.0
 3 silly config load:file:C:\Users\user\AppData\Roaming\npm\node_modules\npm\npmrc
-4 info config found workspace root at C:\projects\test14
-5 silly config load:file:C:\projects\test14\.npmrc
+4 info config found workspace root at C:\projects\dynamic-discounts
+5 silly config load:file:C:\projects\dynamic-discounts\.npmrc
 6 silly config load:file:C:\Users\user\.npmrc
 7 silly config load:file:C:\Users\user\AppData\Roaming\npm\etc\npmrc
 8 verbose title npm exec graphql-code-generator --config package.json
 9 verbose argv "exec" "--" "graphql-code-generator" "--config" "package.json"
-10 verbose logfile logs-max:10 dir:C:\projects\test14\extensions\product-discount\npm-cache\_logs\2025-02-28T09_03_17_734Z-
-11 verbose logfile C:\projects\test14\extensions\product-discount\npm-cache\_logs\2025-02-28T09_03_17_734Z-debug-0.log
+10 verbose logfile logs-max:10 dir:C:\projects\dynamic-discounts\extensions\product-discount\npm-cache\_logs\2025-02-28T15_32_12_807Z-
+11 verbose logfile C:\projects\dynamic-discounts\extensions\product-discount\npm-cache\_logs\2025-02-28T15_32_12_807Z-debug-0.log
 12 silly logfile start cleaning logs, removing 1 files
 13 silly logfile done cleaning log files
-14 verbose cwd C:\projects\test14\extensions\product-discount
+14 verbose cwd C:\projects\dynamic-discounts\extensions\product-discount
 15 verbose os Windows_NT 10.0.19045
 16 verbose node v22.12.0
 17 verbose npm  v11.1.0
