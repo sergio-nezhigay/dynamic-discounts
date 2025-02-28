@@ -22,7 +22,7 @@ export default function Index() {
                 </Text>
                 <Text variant="bodyMd" as="p">
                   This app allows you to create automatic volume discounts for
-                  your Shopify store.
+                  your Shopify store
                 </Text>
               </BlockStack>
               <BlockStack gap="200">
