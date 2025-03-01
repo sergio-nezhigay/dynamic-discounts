@@ -15,8 +15,6 @@ database.sqlite
 .env
 .env.*
 
-fly.toml
-
 
 
 /extensions/*/dist
