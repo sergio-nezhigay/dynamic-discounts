@@ -3,7 +3,7 @@
 client_id = "8e19e2cd739b4017001e7c18e0f9c3a7"
 name = "dynamic-discounts"
 handle = "dynamic-discounts1"
-application_url = "https://paperback-quit-urgent-thee.trycloudflare.com"
+application_url = "https://dynamic-discounts.fly.dev"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ scopes = "write_products,write_discounts"
 
 [auth]
 redirect_urls = [
-  "https://paperback-quit-urgent-thee.trycloudflare.com/auth/callback",
-  "https://paperback-quit-urgent-thee.trycloudflare.com/auth/shopify/callback",
-  "https://paperback-quit-urgent-thee.trycloudflare.com/api/auth/callback"
+  "https://dynamic-discounts.fly.dev/auth/callback",
+  "https://dynamic-discounts.fly.dev/auth/shopify/callback",
+  "https://dynamic-discounts.fly.dev/api/auth/callback"
 ]
 
 [webhooks]

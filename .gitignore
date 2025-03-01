@@ -2,6 +2,7 @@ node_modules
 
 /.cache
 /*cache
+/npm-cache
 /build
 /app/build
 /public/build/
