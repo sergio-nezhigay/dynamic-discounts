@@ -1,11 +1,11 @@
 api_version = "2025-01"
 
 [[extensions]]
-name = "t:name"
+name = "Product Dynamic Discount extension"
 handle = "product-discount"
 type = "function"
 
-description = "t:description"
+description = "Create product discount with value taken from a cart attribute. Helper for the setting up Google merchant automated discounts"
 
   [[extensions.targeting]]
   target = "purchase.product-discount.run"
