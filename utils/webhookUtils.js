@@ -10,16 +10,16 @@ export const processWebhook = async (request, processPayload) => {
 
     return new Response("Webhook received", { status: 200 });
   } catch (error) {
-    console.error("❌ Webhook processing failed:", error);
-
-    if (error instanceof Response) {
-      console.warn(
-        "🚨 Webhook authentication failed! Returning original response.",
-      );
-      return error;
+    console.error("❌ Webhook processing failed, error:", error);
+    if (error.message.includes("Invalid HMAC")) {
+      console.error("❌ Invalid HMAC:", error);
+      return new Response("Unauthorized", { status: 401 });
     }
+    console.error(
+      "❌ Webhook processing failed, error.message:",
+      error.message,
+    );
 
-    console.error("❌ Unexpected error:", error?.message || "Unknown error");
     return new Response("Webhook processing failed", { status: 500 });
   }
 };
