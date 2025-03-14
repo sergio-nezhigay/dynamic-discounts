@@ -21,8 +21,8 @@ export default function App() {
       <div className={styles.content}>
         <h1 className={styles.heading}>Dynamic Discounts for Shopify</h1>
         <p className={styles.text}>
-          Easily integrate Google Merchant automated discounts with dynamic cart
-          attribute-based pricing.
+          Easily apply dynamic, title-based discounts within Shopify, boosting
+          customer engagement and sales.
         </p>
         {showForm && (
           <Form className={styles.form} method="post" action="/auth/login">
@@ -38,16 +38,16 @@ export default function App() {
         )}
         <ul className={styles.list}>
           <li>
-            <strong>Cart Attribute Discounts</strong> - Automatically apply
-            discounts based on cart attributes.
+            <strong>Title-Based Discounts</strong> - Automatically apply
+            discounts based on product title rules.
           </li>
           <li>
-            <strong>Google Merchant Integration</strong> - Supports automated
-            discount amounts.
+            <strong>Easy Shopify Integration</strong> - Manage discounts
+            directly within Shopify Admin.
           </li>
           <li>
-            <strong>Easy Setup</strong> - Manage discounts effortlessly within
-            Shopify Admin.
+            <strong>Customer Engagement</strong> - Boost sales with dynamic,
+            automated pricing strategies.
           </li>
         </ul>
       </div>
