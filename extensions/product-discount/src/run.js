@@ -18,8 +18,20 @@ export function run(input) {
       if (!isNaN(attrDiscount)) {
         discountAmount = attrDiscount;
       }
-    } else if (line.merchandise.product.title.includes("red")) {
-      discountAmount = 1;
+    } else if (
+      line.merchandise.product.title &&
+      (line.merchandise.product.title.includes("знижка") ||
+        line.merchandise.product.title.includes("discount"))
+    ) {
+      //Мишка Logitech M185 red (910-002240) – знижка $10
+      //Мишка Logitech M185 red (910-002240) – знижка 100 грн
+      //Мишка Logitech M185 red (910-002240) – discount 100 грн
+      const discountMatch = line.merchandise.product.title.match(
+        /(знижка|discount)\s+\$?(\d+)/i,
+      );
+      if (discountMatch && discountMatch[2]) {
+        discountAmount = parseFloat(discountMatch[2]);
+      }
     }
 
     if (discountAmount !== null) {
@@ -45,7 +57,7 @@ export function run(input) {
         appliesToEachItem: true,
       },
     },
-    message: `Sergio discount1523 ${amount} applied`,
+    message: `Discount`,
   }));
 
   return {

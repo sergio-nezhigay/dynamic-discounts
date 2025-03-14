@@ -54,27 +54,39 @@ export default function Index() {
               <Text as="h2" variant="headingMd">
                 Welcome to the Dynamic Discounts App!
               </Text>
-              <Text variant="bodyMd" as="p">
-                This app helps Shopify developers implement one of the steps for
-                Google Merchant automated discounts.
-              </Text>
 
               <Text as="h3" variant="headingMd">
                 Key Features
               </Text>
               <BlockStack gap="200">
                 <Text as="p" variant="bodyMd">
-                  <Text as="b">Cart attribute</Text> - based discounts: apply
-                  discounts dynamically based on cart attributes.
+                  <Text as="b">Title-defined discounts:</Text> Apply discounts
+                  dynamically based on rules defined in product titles.
                 </Text>
-                <Text as="p" variant="bodyMd">
-                  <Text as="b">Google Merchant Integration:</Text> Supports
-                  Google automated discounts by processing predefined discount
-                  amounts.
-                </Text>
+
                 <Text as="p" variant="bodyMd">
                   <Text as="b">Easy Setup:</Text> Simply configure discounts in
                   Shopify Admin using this app.
+                </Text>
+              </BlockStack>
+
+              <Text as="h3" variant="headingMd">
+                Discount Rule Format
+              </Text>
+              <BlockStack gap="200">
+                <Text as="p" variant="bodyMd">
+                  The app recognizes discount rules embedded in product titles
+                  using the following format:
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  <Text as="code">Product Name – discount $X </Text>
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  <Text as="b">Examples:</Text>
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  • "Mouse Logitech M185 red (910-002240) – discount $10" -
+                  applies a 10 discount
                 </Text>
               </BlockStack>
 
@@ -98,24 +110,16 @@ export default function Index() {
                     by selecting the "Dynamic Discount" variant.
                   </Text>
                 </InlineStack>
-
                 <Text as="p" variant="bodyMd">
-                  3. Define additional settings (optional, e.g., start/end
+                  3. Format your product titles to include the discount rule as
+                  shown in the example above.
+                </Text>
+                <Text as="p" variant="bodyMd">
+                  4. Define additional settings (optional, e.g., start/end
                   dates, stacking rules).
                 </Text>
                 <Text as="p" variant="bodyMd">
-                  4. Save and activate the discount rule.
-                </Text>
-                <Text as="p" variant="bodyMd">
-                  <Text as="b">Note:</Text> Developers must handle feed
-                  adjustments and token processing separately to store the
-                  discount amount in the "discount-amount" cart attribute.
-                </Text>
-                <Text as="p" variant="bodyMd">
-                  <Text as="b">Important:</Text> The discount value applied is
-                  taken from the cart attribute with the key "discount-amount".
-                  Ensure that this attribute is correctly set before the
-                  discount is processed.
+                  5. Save and activate the discount rule.
                 </Text>
               </BlockStack>
             </BlockStack>
