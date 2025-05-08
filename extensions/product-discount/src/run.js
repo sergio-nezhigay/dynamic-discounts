@@ -49,19 +49,34 @@ export function run(input) {
     return EMPTY_DISCOUNT;
   }
 
-  const discounts = discountAmounts.map((amount) => ({
-    targets: discountTargets[amount],
-    value: {
-      fixedAmount: {
-        amount: parseFloat(amount),
-        appliesToEachItem: true,
+  const discounts = discountAmounts.map((amount) => {
+    return {
+      targets: discountTargets[amount],
+      value: {
+        fixedAmount: {
+          amount: parseFloat(amount),
+          appliesToEachItem: true,
+        },
       },
-    },
-    message: `Discount`,
-  }));
+      message: fetchLocaleTranslation(input.localization.language.isoCode)
+        .discount_message,
+    };
+  });
 
   return {
     discountApplicationStrategy: DiscountApplicationStrategy.First,
     discounts: discounts,
   };
+}
+
+function fetchLocaleTranslation(isoCode) {
+  switch (isoCode) {
+    case "UK":
+      return require("../locales/uk.json");
+    case "RU":
+      return require("../locales/ru.json");
+    case "EN":
+    default:
+      return require("../locales/en.default.json");
+  }
 }

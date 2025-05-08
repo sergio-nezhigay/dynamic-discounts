@@ -1,4 +1,9 @@
 query RunInput {
+  localization {
+    language {
+      isoCode
+    }
+  }
   cart {
     attribute {
       key
@@ -15,7 +20,7 @@ query RunInput {
           }
         }
       }
-      attribute {
+      attribute(key: "discount-amount") {
         key
         value
       }
